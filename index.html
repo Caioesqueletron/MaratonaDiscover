@@ -31,7 +31,7 @@
                     <span>Entrada</span>
                     <img src="./assets/income.svg" alt="imagem de entrada">
                 </h3>
-                <p>R$5.000,00</p>
+                <p id="incomeDisplay">R$0,00</p>
             </div>
 
             <div class="card">
@@ -39,14 +39,14 @@
                     <span>Saidas</span>
                     <img src="./assets/expense.svg" alt="imagem de saida">
                 </h3>
-                <p>R$2.000,00</p>
-            </div>
+                <p id="expenseDisplay">R$0,00</p>
+            </div >
             <div class="card total">
                 <h3>
                     <span>Total</span>
                     <img src="./assets/total.svg" alt="imagem de total">
                 </h3>
-                <p>R$3.000,00</p>
+                <p id="totalDisplay">R$0,00</p>
             </div>
         </section>
 
@@ -54,7 +54,7 @@
 
             <h2 class="sr-only">Transações</h2>
 
-            <a href="#" class="button new" onclick="Modal.open()">+ Nova Transação</a>
+            <a href="#" class="button new" onclick="Modal.modal()">+ Nova Transação</a>
 
             <table id="data-table">
                 <thead>
@@ -66,31 +66,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="descriptional">Luz</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td class="">
-                            <img src="./assets/minus.svg" alt="remover trasação" class="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="descriptional">Criação de website</td>
-                        <td class="income">R$ 5.000,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td class="">
-                            <img src="./assets/minus.svg " alt="remover transação">
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td class="descriptional">Conta de internet</td>
-                        <td class="expense"> - R$ 200,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td class="">
-                            <img src="./assets/minus.svg " alt="remover transação">
-                        </td>
-                    </tr>
+                   
                 </tbody>
             </table>
         </section>
@@ -102,7 +78,7 @@
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action=""  onsubmit="Form.submit(event)">
                     <div class="input-group">
                         <label class="sr-only" for="description">Descrição</label>
                         <input type="text" id="description" name="description" value="" placeholder="Descrição" />
@@ -118,7 +94,7 @@
                         <input type="date" id="date" name="date" value="" placeholder="01/01/2021" />
                     </div>
                     <div class="input-group actions">
-                        <a href="#" class="button cancel" onclick="Modal.close()">Cancelar</a>
+                        <a href="#" class="button cancel" onclick="Modal.modal()">Cancelar</a>
                         <button type="submit">Salvar</button>
                     </div>
                 </form>
@@ -131,19 +107,8 @@
             dev.finance$
         </p>
     </footer>
-    <script>
-        const Modal = {
-            open() {
-                //abrir moda e necessita adicionar a classe active
-                document.querySelector('.modal-overlay').classList.add('active');
-            },
-            close() {
-                //fechar o modal
-                //remover a classe active do modal
-                document.querySelector('.modal-overlay').classList.remove('active');
-
-            }
-        }
+    <script src="./scripts.js">
+        
     </script>
 </body>
 
